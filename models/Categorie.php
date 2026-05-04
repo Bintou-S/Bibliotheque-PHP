@@ -13,11 +13,10 @@ class Categorie
 
     public function findAll(): array
     {
-        $stmt = $this->pdo->query('SELECT * FROM categories ORDER BY libelle');
-        return $stmt->fetchAll();
+        return $this->pdo->query('SELECT * FROM categories ORDER BY libelle')->fetchAll();
     }
 
-    public function findById(int $id): array|false
+    public function findById(int $id): mixed
     {
         $stmt = $this->pdo->prepare('SELECT * FROM categories WHERE id = :id');
         $stmt->execute([':id' => $id]);

@@ -17,7 +17,7 @@ class Auteur
         return $stmt->fetchAll();
     }
 
-    public function findById(int $id): array|false
+    public function findById(int $id): mixed
     {
         $stmt = $this->pdo->prepare('SELECT * FROM auteurs WHERE id = :id');
         $stmt->execute([':id' => $id]);
@@ -30,8 +30,8 @@ class Auteur
             'INSERT INTO auteurs (nom, prenom, nationalite) VALUES (:nom, :prenom, :nationalite)'
         );
         return $stmt->execute([
-            ':nom'         => $nom,
-            ':prenom'      => $prenom,
+            ':nom' => $nom,
+            ':prenom' => $prenom,
             ':nationalite' => $nationalite,
         ]);
     }
@@ -42,9 +42,9 @@ class Auteur
             'UPDATE auteurs SET nom = :nom, prenom = :prenom, nationalite = :nationalite WHERE id = :id'
         );
         return $stmt->execute([
-            ':id'          => $id,
-            ':nom'         => $nom,
-            ':prenom'      => $prenom,
+            ':id' => $id,
+            ':nom' => $nom,
+            ':prenom' => $prenom,
             ':nationalite' => $nationalite,
         ]);
     }
