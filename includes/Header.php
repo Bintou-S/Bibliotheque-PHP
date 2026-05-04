@@ -334,9 +334,21 @@
 
 <nav>
     <a class="nav-brand" href="index.php">Bibliotheque</a>
-    <a href="livres.php"     class="<?= basename($_SERVER['PHP_SELF']) === 'livres.php'      ? 'active' : '' ?>">Livres</a>
-    <a href="auteurs.php"    class="<?= basename($_SERVER['PHP_SELF']) === 'auteurs.php'     ? 'active' : '' ?>">Auteurs</a>
-    <a href="categories.php" class="<?= basename($_SERVER['PHP_SELF']) === 'categories.php'  ? 'active' : '' ?>">Categories</a>
+
+    <a href="livres.php"
+       class="<?php echo (basename($_SERVER['PHP_SELF']) === 'livres.php') ? 'active' : ''; ?>">
+       Livres
+    </a>
+
+    <a href="auteurs.php"
+       class="<?php echo (basename($_SERVER['PHP_SELF']) === 'auteurs.php') ? 'active' : ''; ?>">
+       Auteurs
+    </a>
+
+    <a href="categories.php"
+       class="<?php echo (basename($_SERVER['PHP_SELF']) === 'categories.php') ? 'active' : ''; ?>">
+       Categories
+    </a>
 </nav>
 
 <div class="container">
